@@ -1,0 +1,2 @@
+# HexCalculator
+Hexadecimal calculator
