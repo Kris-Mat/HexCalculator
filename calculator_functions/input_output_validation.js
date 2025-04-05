@@ -1,4 +1,4 @@
-function validInputLength(inputValue){
+function isValidInputLength(inputValue){
     if(inputValue.length > 2){
         return false;
     }
@@ -6,4 +6,12 @@ function validInputLength(inputValue){
     return true;
 }
 
-module.exports = validInputLength;
+function isValidOutputLength(outputValue){
+    if(outputValue.length > 4){
+        return false;
+    }
+
+    return true;
+}
+
+module.exports = {isValidInputLength, isValidOutputLength};
