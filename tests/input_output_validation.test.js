@@ -21,10 +21,20 @@ test('returns true for only hexadecimal values input', () =>{
     expect(isValidHexadecimalInput('4F23')).toBeTruthy();
 });
 
+
+test('returns true for only hexadecimal values input despite lower case letter', () =>{
+    expect(isValidHexadecimalInput('4f23')).toBeTruthy();
+});
+
 test('returns false for non-hexadeciaml values input', () =>{
     expect(isValidHexadecimalInput('R5FA@')).toBeFalsy();
 });
 
+test('returns false for non-hexadeciaml values input despite lower case letter', () =>{
+    expect(isValidHexadecimalInput('r5af@')).toBeFalsy();
+});
+
+// checking that the arithmetic operatoins have an output that is only hexadecimal
 test('returns a hexadeciamal value as an answer for the addition', () =>{
     expect(addition()).toMatch('^[1-9A-Fa-f]+$');
 });
