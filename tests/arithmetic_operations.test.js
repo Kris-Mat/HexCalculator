@@ -84,8 +84,8 @@ test('multiplying (3F * 3A) should return E46', () => {
     expect(multiply('3F', '3A')).toBe('E46');
 });
 
-test('multiplying (AF * 21) should return 16CF', () => {
-    expect(multiply('AF', '21')).toBe('16CF');
+test('multiplying (AF * 21) should return 168F', () => {
+    expect(multiply('AF', '21')).toBe('168F');
 });
 
 test('multiplying (FF * FF) should return FE01 which is the output limit for our calculator', () => {
