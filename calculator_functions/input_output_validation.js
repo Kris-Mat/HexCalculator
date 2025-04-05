@@ -1,6 +1,4 @@
 function isValidInputLength(inputValue){
-    inputValue = String(inputValue).replace(/-/g, '');
-
     if(inputValue.length > 2){
         return false;
     }
