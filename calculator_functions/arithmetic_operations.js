@@ -12,7 +12,6 @@ function add(first, second) {
     const inputErrors = checkForInputErrors('addition', firstValue, secondValue);
     if (inputErrors.length > 0) {
         errors.push(...inputErrors);
-        
         // trigger error display logic here if needed
         return null;
     }
@@ -62,6 +61,8 @@ function subtract(first, second) {
         errors.push(...inputErrors);
         return null;
     }
+
+    secondValue = String(secondValue).replace(/-/g, '');
 
     firstValue = convertToDecimal(firstValue);
     secondValue = convertToDecimal(secondValue);
@@ -160,12 +161,7 @@ function divide(first, second) {
         return null;
     }
 
-    if (secondValue === 0) {
-        errors.push({ MathError: `Division by zero is not allowed.` });
-        return null;
-    }
-
-    let finalCalculation = convertToHexadecimal(Math.floor(firstValue / secondValue));
+    let finalCalculation = convertToHexadecimal(firstValue / secondValue);
 
     if (typeof finalCalculation !== 'string') {
         errors.push({ ConversionError: `The result could not be converted to hexadecimal.` });
