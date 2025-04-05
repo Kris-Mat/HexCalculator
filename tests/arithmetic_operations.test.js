@@ -118,12 +118,12 @@ test('multiplying (FF * 3.1) should return null because invalid hexadecimal inpu
 
 
 // division
-test('dividing (3F / 3A) should return 1', () => {
-    expect(divide('3F', '3A')).toBe('1');
+test('dividing (3F / 3F) should return 1', () => {
+    expect(divide('3F', '3F')).toBe('1');
 });
 
-test('dividing (AF / 21) should return 5', () => {
-    expect(divide('AF', '21')).toBe('5');
+test('dividing (AF / 21) should return null because there is a fraction/remainder', () => {
+    expect(divide('AF', '21')).toBe(null);
 });
 
 test('dividing (FF / FF) should return 1', () => {

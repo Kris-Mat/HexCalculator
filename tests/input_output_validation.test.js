@@ -64,8 +64,12 @@ test('returns a positive hexadecimal value as an answer for the subtraction', ()
     expect(subtract('21', '2')).toMatch(/^[0-9A-Fa-f]+$/);
 });
 
+test('returns null because the answer has  a fraction/remainder', () =>{
+    expect(divide('21', '2')).toBe(null);
+});
+
 test('returns a positive hexadecimal value as an answer for the division', () =>{
-    expect(divide('21', '2')).toMatch(/^[0-9A-Fa-f]+$/);
+    expect(divide('21', '21')).toMatch(/^[0-9A-Fa-f]+$/);
 });
 
 test('returns a positive hexadecimal value as an answer for the multiplication', () =>{
