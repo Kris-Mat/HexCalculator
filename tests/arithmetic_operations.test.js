@@ -140,7 +140,7 @@ test('dividing (-FF / -FF) should return 1', () =>{
 });
 
 test('dividing by zero (F2 / 0) should not be possible and should return null', () =>{
-    // ahould not be possible and should return an error
+    // should not be possible and should return an error
     expect(divide('F2', '0')).toBe(null);
 });
 
