@@ -62,7 +62,7 @@ function subtract(first, second) {
         return null;
     }
 
-    secondValue = String(secondValue).replace(/-/g, '');
+    secondValue = secondValue.replace(/-+/g, '');
 
     firstValue = convertToDecimal(firstValue);
     secondValue = convertToDecimal(secondValue);
