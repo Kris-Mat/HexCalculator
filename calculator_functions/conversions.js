@@ -28,10 +28,10 @@ function convertToHexadecimal(value) {
 }
 
 function getZeroIfAllZero(value){
-    value = String(value).replace(/\s+/g, '');
+    const cleanedValue = String(value).replace(/[\s-]+/g, '');
 
     // Check if all characters are '0'
-    if ([...value].every(char => char === '0')) {
+    if ([...cleanedValue].every(char => char === '0')) {
         return '0';
     }
 
