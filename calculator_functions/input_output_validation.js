@@ -1,5 +1,5 @@
 function isValidInputLength(inputValue){
-    inputValue = String(inputValue).replace(/-/g, '');
+    inputValue = String(inputValue).replace(/[\s-]/g, '');
 
     if(inputValue.length > 2){
         return false;
@@ -43,7 +43,7 @@ function isAFraction(value){
         value = String(value);
     }
 
-    value = String(value).replace(/\s+/g, '');
+    value = String(value).replace(/[\s-]+/g, '');
 
     return value.includes('.');
 }
