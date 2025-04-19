@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Screen from './components/Screen';
 import Buttons from './components/Buttons';
 import { checkForInputErrors, checkForOutputErrors } from './utils/calculator_functions/input_output_validation';
+import './App.css';
 
 const App = () => {
     const [input, setInput] = useState('');

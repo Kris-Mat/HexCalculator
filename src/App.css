@@ -40,3 +40,92 @@
 .read-the-docs {
   color: #888;
 }
+
+.calculator {
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+  background-color:#300049;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+  background-color: #d5b4e790;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.input, .output {
+  font-size: 1.5em;
+  margin: 5px 0;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: space-around;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.valueButtons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.valueButton{
+  background-color:#300049;
+  border: solid 2px #00838F;
+}
+
+.valueButton:hover{
+  background-color: #00838F;
+}
+
+.operationButtons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.operationButton{
+  background-color: #00838F;
+}
+
+
+.operationButton:hover{
+  background-color: #14a1ae;
+}
+
+.cleaningButtons{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom:10px;
+}
+
+.cleaningButton{
+  background-color: #4A0072;
+}
+
+.cleaningButton:hover{
+  background-color: #62118e;
+}
+
+
+button {
+  padding: 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
