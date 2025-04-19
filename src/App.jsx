@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import Screen from './components/Screen';
+import Buttons from './components/Buttons';
+import { checkForInputErrors, checkForOutputErrors } from './utils/calculator_functions/input_output_validation';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    const [input, setInput] = useState('');
+    const [output, setOutput] = useState('');
+    const [error, setError] = useState('');
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    const handleButtonClick = (value) => {
+        if (value === 'C') {
+            setInput('');
+            setOutput('');
+            setError('');
+        } else if (value === '=') {
+            const errors = checkForInputErrors('operation', input, '0'); // Example validation
+            if (errors.length > 0) {
+                setError(errors[0].IOError || errors[0].MathError);
+                return;
+            }
 
-export default App
+            try {
+                // Example calculation logic (replace with your actual logic)
+                const result = parseInt(input, 16) + 1; // Example: Increment input
+                const outputErrors = checkForOutputErrors(result.toString(16));
+                if (outputErrors.length > 0) {
+                    setError(outputErrors[0].IOError || outputErrors[0].MathError);
+                    return;
+                }
+                setOutput(result.toString(16).toUpperCase());
+                setError('');
+            } catch (e) {
+                setError('An error occurred during calculation.');
+            }
+        } else {
+            setInput((prev) => prev + value);
+        }
+    };
+
+    return (
+        <div className="calculator">
+            <Screen input={input} output={output} error={error} />
+            <Buttons onButtonClick={handleButtonClick} />
+        </div>
+    );
+};
+
+export default App;

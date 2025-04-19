@@ -1,5 +1,5 @@
 // tests to check that the conversions from hexadecimal to decimal and back vice versa are correct
-const {convertToDecimal, convertToHexadecimal, getZeroIfAllZero} = require('../calculator_functions/conversions')
+import {convertToDecimal, convertToHexadecimal, getZeroIfAllZero} from '../calculator_functions/conversions'
 
 test('hexadecimal value FF to decimal should return 255', () =>{
     expect(convertToDecimal('FF')).toBe(255);

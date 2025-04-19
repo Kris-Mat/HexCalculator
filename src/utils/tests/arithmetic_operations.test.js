@@ -1,4 +1,4 @@
-const {add, subtract, multiply, divide} = require('../calculator_functions/arithmetic_operations')
+import {add, subtract, multiply, divide} from '../calculator_functions/arithmetic_operations'
 
 test('adding 10 and 3F should return 4F', () => {
     expect(add('10', '3F')).toBe('4F');

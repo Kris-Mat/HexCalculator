@@ -1,4 +1,4 @@
-function convertToDecimal(value) {
+export function convertToDecimal(value) {
     if (typeof value !== 'string') {
         value = String(value);
     }
@@ -13,7 +13,7 @@ function convertToDecimal(value) {
     return decimal;
 }
 
-function convertToHexadecimal(value) {
+export function convertToHexadecimal(value) {
     value = String(value).replace(/\s+/g, '');
 
     if(typeof value !== 'number'){
@@ -27,7 +27,7 @@ function convertToHexadecimal(value) {
     return value.toString(16).toUpperCase();
 }
 
-function getZeroIfAllZero(value){
+export function getZeroIfAllZero(value){
     const cleanedValue = String(value).replace(/[\s-]+/g, '');
 
     // Check if all characters are '0'
@@ -37,5 +37,3 @@ function getZeroIfAllZero(value){
 
     return value;
 }
-
-module.exports = {convertToDecimal, convertToHexadecimal, getZeroIfAllZero};

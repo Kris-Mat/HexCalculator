@@ -1,5 +1,5 @@
-const {add, subtract, divide, multiply } = require('../calculator_functions/arithmetic_operations');
-const {isValidInputLength, isValidOutputLength, isValidHexadecimalValue, isValueNegative} = require('../calculator_functions/input_output_validation');
+import {add, subtract, divide, multiply } from '../calculator_functions/arithmetic_operations';
+import {isValidInputLength, isValidOutputLength, isValidHexadecimalValue, isValueNegative} from '../calculator_functions/input_output_validation'
 
 // input and output format validation 
 test('return false for invalid number of values input (3333)', ()=>{

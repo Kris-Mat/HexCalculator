@@ -1,7 +1,7 @@
-const { getZeroIfAllZero, convertToDecimal, convertToHexadecimal } = require("./conversions");
-const { checkForInputErrors, checkForOutputErrors } = require("./input_output_validation");
+import { getZeroIfAllZero, convertToDecimal, convertToHexadecimal } from "./conversions"
+import { checkForInputErrors, checkForOutputErrors } from "./input_output_validation"
 
-function add(first, second) {
+export function add(first, second) {
     let errors = [];
 
     // Normalize input
@@ -50,7 +50,7 @@ function add(first, second) {
 }
 
 
-function subtract(first, second) {
+export function subtract(first, second) {
     let errors = [];
 
     let firstValue = getZeroIfAllZero(first);
@@ -94,7 +94,7 @@ function subtract(first, second) {
 }
 
 
-function multiply(first, second) {
+export function multiply(first, second) {
     let errors = [];
 
     let firstValue = getZeroIfAllZero(first);
@@ -136,7 +136,7 @@ function multiply(first, second) {
 }
 
 
-function divide(first, second) {
+export function divide(first, second) {
     let errors = [];
 
     let firstValue = getZeroIfAllZero(first);
@@ -176,6 +176,3 @@ function divide(first, second) {
 
     return finalCalculation;
 }
-
-
-module.exports = {add, subtract, multiply, divide};
