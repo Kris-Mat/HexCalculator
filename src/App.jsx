@@ -7,8 +7,8 @@ import './App.css';
 
 const App = () => {
     const [firstValue, setFirstValue] = useState('');
-    const [secondValue, setSecondValue] = useState(''); // Added state for operation
-    const [operation, setOperation] = useState(''); // Added state for operation
+    const [secondValue, setSecondValue] = useState(''); 
+    const [operation, setOperation] = useState(''); 
 
     const [output, setOutput] = useState('');
     const [error, setError] = useState([]);
