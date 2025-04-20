@@ -1,6 +1,6 @@
 describe('Hex Calculator operations', () => {
   it('should click on "1" and have the display show "1"', () => {
-    cy.visit('http://localhost:5174/');
+    cy.visit('http://localhost:5173/');
 
     cy.get('.valueButtons').contains('1').click();
 
@@ -8,7 +8,7 @@ describe('Hex Calculator operations', () => {
   })
 
   it('should click on "1 + 1 =" and have the display show "2"', () => {
-    cy.visit('http://localhost:5174/');
+    cy.visit('http://localhost:5173/');
 
     cy.get('.valueButtons').contains('1').click();
 
