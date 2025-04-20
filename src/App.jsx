@@ -1,49 +1,102 @@
 import React, { useState } from 'react';
 import Screen from './components/Screen';
 import Buttons from './components/Buttons';
-import { checkForInputErrors, checkForOutputErrors } from './utils/calculator_functions/input_output_validation';
+import Errors from './components/Errors';
+import { add, subtract, multiply, divide } from './utils/calculator_functions/arithmetic_operations';
 import './App.css';
 
 const App = () => {
-    const [input, setInput] = useState('');
+    const [firstValue, setFirstValue] = useState('');
+    const [secondValue, setSecondValue] = useState(''); // Added state for operation
+    const [operation, setOperation] = useState(''); // Added state for operation
+
     const [output, setOutput] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState([]);
 
     const handleButtonClick = (value) => {
-        if (value === 'C') {
-            setInput('');
+        if (value === 'clear') {
+            setFirstValue('');
+            setSecondValue('');
+            setOperation('');
             setOutput('');
-            setError('');
-        } else if (value === '=') {
-            const errors = checkForInputErrors('operation', input, '0'); // Example validation
-            if (errors.length > 0) {
-                setError(errors[0].IOError || errors[0].MathError);
-                return;
+            setError([]);
+        } else if (value === 'del') {
+          if(secondValue !==''){
+            setSecondValue((prev) => prev.slice(0, -1));
+          }
+          else{
+            if(operation !== ''){
+              setOperation('');
             }
+            else{
+              setFirstValue((prev) => prev.slice(0, -1));
+            }
+          }
+        }
+        else if (value === '=') {
+          try {
+             if(operation ==='+'){
+                const result = add(firstValue, secondValue);
+                setOutput(result);
+             }
 
-            try {
-                // Example calculation logic (replace with your actual logic)
-                const result = parseInt(input, 16) + 1; // Example: Increment input
-                const outputErrors = checkForOutputErrors(result.toString(16));
-                if (outputErrors.length > 0) {
-                    setError(outputErrors[0].IOError || outputErrors[0].MathError);
-                    return;
-                }
-                setOutput(result.toString(16).toUpperCase());
-                setError('');
-            } catch (e) {
-                setError('An error occurred during calculation.');
+             if(operation ==='-'){
+                const result = subtract(firstValue, secondValue);
+                setOutput(result);
+             }
+
+             if(operation === 'x'){
+                const result = multiply(firstValue, secondValue);
+                setOutput(result);
+             }
+
+             if(operation === '/'){
+                const result = divide(firstValue, secondValue);
+                setOutput(result);
+             }
+          } catch (e) {
+              setError(e);
+          }
+        }
+        else if(value === '+' || value === '-' || value === 'x' || value === '/') {
+          if(operation !==''){
+            setError((prev) => prev + {IOError: "Please only use one operation at a time"});
+          }
+          else{
+            setOperation(value);
+          }
+        }
+        else{
+          if(output !== ''){
+            setFirstValue('');
+            setSecondValue('');
+            setOperation('');
+            setOutput('');
+            setError([]);
+
+            setFirstValue((prev) => prev + value);
+          }
+          else{
+            if(operation === ''){
+              setFirstValue((prev) => prev + value);
             }
-        } else {
-            setInput((prev) => prev + value);
+            else{
+              setSecondValue((prev) => prev + value);
+            }
+          }
         }
     };
 
     return (
+      <div>        
         <div className="calculator">
-            <Screen input={input} output={output} error={error} />
+            <Screen firstValue={firstValue} secondValue ={secondValue} operation={operation} output={output} />
             <Buttons onButtonClick={handleButtonClick} />
         </div>
+        <div>
+            {error && <Errors error={error} />}
+        </div>
+      </div>
     );
 };
 

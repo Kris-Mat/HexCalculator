@@ -1,11 +1,22 @@
 import React from 'react';
 
-const Screen = ({ input, output, error }) => {
+const Screen = ({ firstValue, secondValue, operation, output }) => {
+    let inputDisplay = '0';
+    let equalSign = '';
+    
+    if (output) {
+        inputDisplay = output;
+        equalSign = '=';
+    } else if (secondValue) {
+        inputDisplay = secondValue;
+    } else if (firstValue) {
+        inputDisplay = firstValue;
+    }
+
     return (
-        <div className="screen">
-            <div className="input">{input || '0'}</div>
-            <div className="output">{output}</div>
-            {error && <div className="error">{error}</div>}
+         <div className="screen">
+            <div className="small-equation">{firstValue} {operation} {secondValue} {equalSign}</div>
+            <div className="input">{inputDisplay}</div>
         </div>
     );
 };

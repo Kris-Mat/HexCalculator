@@ -58,7 +58,7 @@ export function checkForInputErrors(operation, firstValue, secondValue){
     }
 
     if(!isValidInputLength(secondValue)){
-        errors.push({IOError: "The first number should only be 2 digits long"});
+        errors.push({IOError: "The second number should only be 2 digits long"});
     }
 
     if(!isValidHexadecimalValue(firstValue)){

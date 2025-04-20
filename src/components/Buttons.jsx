@@ -6,7 +6,7 @@ const Buttons = ({ onButtonClick }) => {
     ];
 
     const operationButtons = [
-        '+', '-', 'X', '/' ,'='
+        '+', '-', 'x', '/' ,'='
     ];
 
     const cleaningButtons = [

@@ -12,8 +12,7 @@ export function add(first, second) {
     const inputErrors = checkForInputErrors('addition', firstValue, secondValue);
     if (inputErrors.length > 0) {
         errors.push(...inputErrors);
-        // trigger error display logic here if needed
-        return null;
+        throw errors;
     }
 
     // Convert to decimal
@@ -22,12 +21,12 @@ export function add(first, second) {
 
     if (typeof firstValue !== 'number') {
         errors.push({ ConversionError: `'${first}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     if (typeof secondValue !== 'number') {
         errors.push({ ConversionError: `'${second}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     let test = firstValue + secondValue;
@@ -36,14 +35,14 @@ export function add(first, second) {
 
     if (typeof finalCalculation !== 'string') {
         errors.push({ ConversionError: `The result could not be converted to hexadecimal.` });
-        return null;
+        throw errors;
     }
 
     // Output validation
     const outputErrors = checkForOutputErrors(finalCalculation);
     if (outputErrors.length > 0) {
         errors.push(...outputErrors);
-        return null;
+        throw errors;
     }
 
     return finalCalculation;
@@ -59,7 +58,7 @@ export function subtract(first, second) {
     const inputErrors = checkForInputErrors('subtraction', firstValue, secondValue);
     if (inputErrors.length > 0) {
         errors.push(...inputErrors);
-        return null;
+        throw errors;
     }
 
     secondValue = secondValue.replace(/-+/g, '');
@@ -69,25 +68,25 @@ export function subtract(first, second) {
 
     if (typeof firstValue !== 'number') {
         errors.push({ ConversionError: `'${first}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     if (typeof secondValue !== 'number') {
         errors.push({ ConversionError: `'${second}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     let finalCalculation = convertToHexadecimal(firstValue - secondValue);
 
     if (typeof finalCalculation !== 'string') {
         errors.push({ ConversionError: `The result could not be converted to hexadecimal.` });
-        return null;
+        throw errors;
     }
 
     const outputErrors = checkForOutputErrors(finalCalculation);
     if (outputErrors.length > 0) {
         errors.push(...outputErrors);
-        return null;
+        throw errors;
     }
 
     return finalCalculation;
@@ -103,7 +102,7 @@ export function multiply(first, second) {
     const inputErrors = checkForInputErrors('multiplication', firstValue, secondValue);
     if (inputErrors.length > 0) {
         errors.push(...inputErrors);
-        return null;
+        throw errors;
     }
 
     firstValue = convertToDecimal(firstValue);
@@ -111,25 +110,25 @@ export function multiply(first, second) {
 
     if (typeof firstValue !== 'number') {
         errors.push({ ConversionError: `'${first}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     if (typeof secondValue !== 'number') {
         errors.push({ ConversionError: `'${second}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     let finalCalculation = convertToHexadecimal(firstValue * secondValue);
 
     if (typeof finalCalculation !== 'string') {
         errors.push({ ConversionError: `The result could not be converted to hexadecimal.` });
-        return null;
+        throw errors;
     }
 
     const outputErrors = checkForOutputErrors(finalCalculation);
     if (outputErrors.length > 0) {
         errors.push(...outputErrors);
-        return null;
+        throw errors;
     }
 
     return finalCalculation;
@@ -145,7 +144,7 @@ export function divide(first, second) {
     const inputErrors = checkForInputErrors('division', firstValue, secondValue);
     if (inputErrors.length > 0) {
         errors.push(...inputErrors);
-        return null;
+        throw errors;
     }
 
     firstValue = convertToDecimal(firstValue);
@@ -153,25 +152,25 @@ export function divide(first, second) {
 
     if (typeof firstValue !== 'number') {
         errors.push({ ConversionError: `'${first}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     if (typeof secondValue !== 'number') {
         errors.push({ ConversionError: `'${second}' could not be converted to decimal.` });
-        return null;
+        throw errors;
     }
 
     let finalCalculation = convertToHexadecimal(firstValue / secondValue);
 
     if (typeof finalCalculation !== 'string') {
         errors.push({ ConversionError: `The result could not be converted to hexadecimal.` });
-        return null;
+        throw errors;
     }
 
     const outputErrors = checkForOutputErrors(finalCalculation);
     if (outputErrors.length > 0) {
         errors.push(...outputErrors);
-        return null;
+        throw errors;
     }
 
     return finalCalculation;
