@@ -1,5 +1,5 @@
 // IOErrors
-const {checkForInputErrors, checkForOutputErrors} = require('../calculator_functions/input_output_validation');
+import {checkForInputErrors, checkForOutputErrors} from '../calculator_functions/input_output_validation'
 
 test('(212 , b1) should return an error message for input too long', () =>{
     expect(checkForInputErrors('addition', '212', 'b1')).toEqual([{IOError: "The first number should only be 2 digits long"}]);

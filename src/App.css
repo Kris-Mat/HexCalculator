@@ -1,0 +1,140 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.calculator {
+  width: 300px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+  background-color:#300049;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+  background-color: #d5b4e7;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  height: 75px;
+  padding:10px;
+  color:black;
+}
+
+.small-equation{
+  height:20px;
+  font-size: small;
+  width:100%;
+  text-align: right;
+}
+
+.display, .output {
+  font-size: 1.5em;
+  margin: 5px 0;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: space-around;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+.valueButtons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.valueButton{
+  background-color:#300049;
+  border: solid 2px #00838F;
+}
+
+.valueButton:hover{
+  background-color: #00838F;
+}
+
+.operationButtons {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+}
+
+.operationButton{
+  background-color: #00838F;
+}
+
+
+.operationButton:hover{
+  background-color: #14a1ae;
+}
+
+.cleaningButtons{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom:10px;
+}
+
+.cleaningButton{
+  background-color: #4A0072;
+}
+
+.cleaningButton:hover{
+  background-color: #62118e;
+}
+
+
+button {
+  padding: 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+

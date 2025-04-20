@@ -1,4 +1,4 @@
-function isValidInputLength(inputValue){
+export function isValidInputLength(inputValue){
     inputValue = String(inputValue).replace(/[\s-]/g, '');
 
     if(inputValue.length > 2){
@@ -8,7 +8,7 @@ function isValidInputLength(inputValue){
     return true;
 }
 
-function isValidOutputLength(outputValue){
+export function isValidOutputLength(outputValue){
     if(outputValue.length > 4){
         return false;
     }
@@ -16,7 +16,7 @@ function isValidOutputLength(outputValue){
     return true;
 }
 
-function isValidHexadecimalValue(value) {
+export function isValidHexadecimalValue(value) {
     if (typeof value !== 'string') {
         value = String(value);
     }
@@ -28,7 +28,7 @@ function isValidHexadecimalValue(value) {
     return hexRegex.test(value);
 }
 
-function isValueNegative(value) {
+export function isValueNegative(value) {
     if (typeof value !== 'string') {
         value = String(value);
     }
@@ -38,7 +38,7 @@ function isValueNegative(value) {
     return value.startsWith('-');
 }
 
-function isAFraction(value){
+export function isAFraction(value){
     if (typeof value !== 'string') {
         value = String(value);
     }
@@ -49,7 +49,7 @@ function isAFraction(value){
 }
 
 
-function checkForInputErrors(operation, firstValue, secondValue){
+export function checkForInputErrors(operation, firstValue, secondValue){
     const errors = [];
    
     // length
@@ -58,7 +58,7 @@ function checkForInputErrors(operation, firstValue, secondValue){
     }
 
     if(!isValidInputLength(secondValue)){
-        errors.push({IOError: "The first number should only be 2 digits long"});
+        errors.push({IOError: "The second number should only be 2 digits long"});
     }
 
     if(!isValidHexadecimalValue(firstValue)){
@@ -78,7 +78,7 @@ function checkForInputErrors(operation, firstValue, secondValue){
 
 
 
-function checkForOutputErrors(outputValue){
+export function checkForOutputErrors(outputValue){
     const errors = [];
 
     if(!isValidOutputLength(outputValue)){
@@ -95,6 +95,3 @@ function checkForOutputErrors(outputValue){
 
     return errors;
 }
-
-
-module.exports = {isValidInputLength, isValidOutputLength, isValidHexadecimalValue, isValueNegative, isAFraction, checkForInputErrors, checkForOutputErrors};
