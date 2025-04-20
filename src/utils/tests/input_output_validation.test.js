@@ -64,8 +64,14 @@ test('returns a positive hexadecimal value as an answer for the subtraction (21,
     expect(subtract('21', '2')).toMatch(/^[0-9A-Fa-f]+$/);
 });
 
-test('returns null because the answer has  a fraction/remainder (21, 2)', () =>{
-    expect(divide('21', '2')).toBe(null);
+test('returns an error because the answer has a fraction/remainder (21, 2)', () => {
+    try {
+        divide('21', '2');
+    } catch (error) {
+        expect(error).toEqual([
+            { MathError: "The answer was a decimal fraction number, which is not allowed. Please try input different numbers" },
+        ]);
+    }
 });
 
 test('returns a positive hexadecimal value as an answer for the division (21, 21)', () =>{
