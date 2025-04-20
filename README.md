@@ -7,3 +7,9 @@ Here is a list of resources that have been used in the videos of the course
 - **Hexadecimal Calculator Functional Requirements:** https://drive.google.com/file/d/1ByXOMjsBdsk2uXzivcQ_2vJoNM7xq8Bv/view?usp=sharing
 - **Googlre Drive Videos:** https://drive.google.com/drive/folders/1Px1JJBONIhc928038fyAxmFKCsTcyXXS?usp=sharing
 - **Cypress Docs:** https://docs.cypress.io/app/continuous-integration/github-actions
+
+## Commands
+
+- **Start application:** `npm run dev`
+- **Run Jest tests:** `npm test`
+- **Open Cypress Testing Environment:** `npx cypress open`
