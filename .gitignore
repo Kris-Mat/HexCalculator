@@ -23,4 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-cypress.env.json
+# normally you don't commit these files, but for accessibility I have committed them so everyone can have access to their set up
+# cypress.env.json
+
+# .env
