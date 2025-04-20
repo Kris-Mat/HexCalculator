@@ -16,7 +16,7 @@ const Screen = ({ firstValue, secondValue, operation, output }) => {
     return (
          <div className="screen">
             <div className="small-equation">{firstValue} {operation} {secondValue} {equalSign}</div>
-            <div className="input">{inputDisplay}</div>
+            <div className="display">{inputDisplay}</div>
         </div>
     );
 };
