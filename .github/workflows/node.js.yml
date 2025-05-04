@@ -21,6 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        cache-dependency-path: Frontend/package-lock.json
     - run: cd Frontend && npm ci
     - run: cd Frontend && npm run build --if-present
     - run: cd Frontend && npm test -- --passWithNoTests # Run Jest tests
@@ -36,6 +37,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: Frontend/package-lock.json
 
     - name: Install dependencies
       run: cd Frontend && npm install
