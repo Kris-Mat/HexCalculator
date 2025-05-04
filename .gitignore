@@ -7,8 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+/Frontend/node_modules
+/Frontend/dist
 dist-ssr
 *.local
 
@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# normally you don't commit these files, but for accessibility I have committed them so everyone can have access to their set up
+# normally you don't commit these files, but for accessibility I have committed them so everyone can have access to their set up:
 
 # cypress.env.json
 # .env
