@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
@@ -11,13 +8,11 @@ on:
 
 jobs:
   jest-tests:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v4
@@ -26,31 +21,32 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test -- --passWithNoTests #run jest tests
+    - run: cd Frontend && npm ci
+    - run: cd Frontend && npm run build --if-present
+    - run: cd Frontend && npm test -- --passWithNoTests # Run Jest tests
   
   cypress-tests:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: cd Frontend && npm install
 
-      - name: Start server
-        run: npm run dev &
-        env:
-          PORT: 5173
+    - name: Start server
+      run: cd Frontend && npm run dev &
+      env:
+        PORT: 5173
 
-      - name: Wait for server to be ready
-        run: npx wait-on http://localhost:5173
+    - name: Wait for server to be ready
+      run: npx wait-on http://localhost:5173
 
-      - name: Run Cypress tests
-        run: npx cypress run
+    - name: Run Cypress tests
+      run: cd Frontend && npx cypress run
